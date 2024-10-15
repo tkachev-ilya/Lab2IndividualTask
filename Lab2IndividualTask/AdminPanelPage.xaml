@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab2IndividualTask.AdminPanelPage"
+             Title="AdminPanelPage">
+
+    <StackLayout Padding="10">
+        <Label Text="Панель администратора" FontSize="Large" />
+
+        <Entry x:Name="PhoneEntry" Placeholder="Введите номер телефона" />
+        <Entry x:Name="RoomEntry" Placeholder="Введите номер помещения" />
+        <Entry x:Name="EmployeesEntry" Placeholder="Введите имена сотрудников через запятую" />
+        <Button Text="Добавить/Обновить запись" Clicked="OnAddOrUpdateRecordClicked" />
+        <Button Text="Вернуться к странице поиска" Clicked="ReturnToMainPage"></Button>
+    </StackLayout>
+</ContentPage>

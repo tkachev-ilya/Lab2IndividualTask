@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab2IndividualTask.MainPage">
+    
+    
+    <StackLayout Padding="10">
+        <Label Text="Поиск информации" FontSize="Large" />
+
+        <Entry x:Name="PhoneEntry" Placeholder="Введите номер телефона" />
+        <Button Text="Поиск по номеру телефона" Clicked="OnPhoneSearchClicked" />
+
+        <Entry x:Name="RoomEntry" Placeholder="Введите номер помещения" />
+        <Button Text="Поиск по номеру помещения" Clicked="OnRoomSearchClicked" />
+
+        <Entry x:Name="LastNameEntry" Placeholder="Введите фамилию" />
+        <Button Text="Поиск по фамилии" Clicked="OnLastNameSearchClicked" />
+        <StackLayout Padding="100"></StackLayout>
+        <Button Text="Вход для администратора"  Clicked="OnAdminLoginClicked" Padding="50"/>
+    </StackLayout>
+</ContentPage>
