@@ -23,6 +23,16 @@ namespace Lab2IndividualTask
                 }
             }
         }
+        private Room _selectedRoom;
+        public Room SelectedRoom
+        {
+            get => _selectedRoom;
+            set
+            {
+                _selectedRoom = value;
+                OnPropertyChanged(nameof(SelectedRoom));
+            }
+        }
         public ObservableCollection<Room> PhoneDirectory { get; set; }
         public ICommand AddRoomCommand { get; }
 

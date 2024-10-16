@@ -32,25 +32,21 @@ namespace Lab2IndividualTask
         }
 
         private void OnRoomSearchClicked(object sender, EventArgs e)
-        {
-            int roomNumber;
-            if (int.TryParse(RoomEntry.Text, out roomNumber))
-            {
-                var room = PhoneDirectoryViewModel.Instance.PhoneDirectory.FirstOrDefault(r => r.RoomNumber == roomNumber);
-                if (room != null)
-                {
-                    DisplayAlert("Результаты", $"Номер телефона: {room.PhoneNumber}\nСлужащие: {string.Join(", ", room.Employees.Select(emp => emp.Name))}", "OK");
-                }
-                else
-                {
-                    DisplayAlert("Ошибка", "Номер помещения не найден", "OK");
-                }
-            }
-            else
-            {
-                DisplayAlert("Ошибка", "Введите корректный номер помещения", "OK");
-            }
-        }
+{
+    // Получаем выбранную комнату из Picker
+    var selectedRoom = PhoneDirectoryViewModel.Instance.SelectedRoom;
+
+    if (selectedRoom != null)
+    {
+        // Если комната выбрана, отображаем информацию о ней
+        DisplayAlert("Результаты", $"Номер телефона: {selectedRoom.PhoneNumber}\nСлужащие: {string.Join(", ", selectedRoom.Employees.Select(emp => emp.Name))}", "OK");
+    }
+    else
+    {
+        // Если комната не выбрана, отображаем сообщение об ошибке
+        DisplayAlert("Ошибка", "Выберите комнату для поиска", "OK");
+    }
+}
 
         private void OnLastNameSearchClicked(object sender, EventArgs e)
         {

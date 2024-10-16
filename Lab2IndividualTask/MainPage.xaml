@@ -9,13 +9,16 @@
 
         <Entry x:Name="PhoneEntry" Placeholder="Введите номер телефона" />
         <Button Text="Поиск по номеру телефона" Clicked="OnPhoneSearchClicked" />
-
-        <Entry x:Name="RoomEntry" Placeholder="Введите номер помещения" />
+        <Picker Title="Выберите комнату"
+                x:Name="RoomEntry"
+                ItemsSource="{Binding PhoneDirectory}" 
+                ItemDisplayBinding="{Binding RoomNumber}"
+                SelectedItem="{Binding SelectedRoom}" />
         <Button Text="Поиск по номеру помещения" Clicked="OnRoomSearchClicked" />
 
         <Entry x:Name="LastNameEntry" Placeholder="Введите фамилию" />
         <Button Text="Поиск по фамилии" Clicked="OnLastNameSearchClicked" />
         <StackLayout Padding="100"></StackLayout>
-        <Button Text="Вход для администратора"  Clicked="OnAdminLoginClicked" Padding="50"/>
+        <Button Text="Вход для администратора"  Clicked="OnAdminLoginClicked" />
     </StackLayout>
 </ContentPage>
