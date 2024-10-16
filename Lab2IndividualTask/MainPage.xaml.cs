@@ -7,6 +7,7 @@ namespace Lab2IndividualTask
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = PhoneDirectoryViewModel.Instance;
         }
 
         private void OnPhoneSearchClicked(object sender, EventArgs e)
@@ -14,7 +15,7 @@ namespace Lab2IndividualTask
             int phone;
             if (int.TryParse(PhoneEntry.Text, out phone))
             {
-                var room = PhoneDirectoryService.Instance.PhoneDirectory.FirstOrDefault(r => r.PhoneNumber == phone);
+                var room = PhoneDirectoryViewModel.Instance.PhoneDirectory.FirstOrDefault(r => r.PhoneNumber == phone);
                 if (room != null)
                 {
                     DisplayAlert("Результаты", $"Номер помещения: {room.RoomNumber}\nСлужащие: {string.Join(", ", room.Employees.Select(emp => emp.Name))}", "OK");
@@ -35,7 +36,7 @@ namespace Lab2IndividualTask
             int roomNumber;
             if (int.TryParse(RoomEntry.Text, out roomNumber))
             {
-                var room = PhoneDirectoryService.Instance.PhoneDirectory.FirstOrDefault(r => r.RoomNumber == roomNumber);
+                var room = PhoneDirectoryViewModel.Instance.PhoneDirectory.FirstOrDefault(r => r.RoomNumber == roomNumber);
                 if (room != null)
                 {
                     DisplayAlert("Результаты", $"Номер телефона: {room.PhoneNumber}\nСлужащие: {string.Join(", ", room.Employees.Select(emp => emp.Name))}", "OK");
@@ -56,7 +57,7 @@ namespace Lab2IndividualTask
             var employeeName = LastNameEntry.Text;
             if (!string.IsNullOrEmpty(employeeName))
             {
-                var room = PhoneDirectoryService.Instance.PhoneDirectory.FirstOrDefault(r => r.Employees.Any(emp => emp.Name.Equals(employeeName, StringComparison.OrdinalIgnoreCase)));
+                var room = PhoneDirectoryViewModel.Instance.PhoneDirectory.FirstOrDefault(r => r.Employees.Any(emp => emp.Name.Equals(employeeName, StringComparison.OrdinalIgnoreCase)));
                 if (room != null)
                 {
                     DisplayAlert("Результаты", $"Номер телефона: {room.PhoneNumber}\nНомер помещения: {room.RoomNumber}", "OK");

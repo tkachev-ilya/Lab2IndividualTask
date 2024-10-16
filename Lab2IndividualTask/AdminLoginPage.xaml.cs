@@ -2,8 +2,8 @@ namespace Lab2IndividualTask;
 
 public partial class AdminLoginPage : ContentPage
 {
-    private const string AdminUsername = "admin";
-    private const string AdminPassword = "password";
+    private const string AdminUsername = "1";
+    private const string AdminPassword = "1";
 
     public AdminLoginPage()
     {
